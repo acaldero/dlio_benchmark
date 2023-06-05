@@ -21,9 +21,10 @@ class StorageType(Enum):
     """
     Different types of underlying storage
     """
-    LOCAL_FS = 'local_fs'
+    LOCAL_FS    = 'local_fs'
     PARALLEL_FS = 'parallel_fs'
-    S3 = 's3'
+    S3          = 's3'
+    HDFS        = 'hdfs'
 
     def __str__(self):
         return self.value
@@ -32,9 +33,10 @@ class MetadataType(Enum):
     """
     Different types of storage metadata
     """
-    FILE = 'file'
-    DIRECTORY = 'directory'
-    S3_OBJECT = 's3_object'
+    FILE        = 'file'
+    DIRECTORY   = 'directory'
+    S3_OBJECT   = 's3_object'
+    HDFS_OBJECT = 'hdfs_object'
 
     def __str__(self):
         return self.value
@@ -43,7 +45,7 @@ class NamespaceType(Enum):
     """
     Different types of Storage Namespace
     """
-    FLAT = 'flat'
+    FLAT         = 'flat'
     HIERARCHICAL = 'Hierarchical'
 
     def __str__(self):
@@ -71,7 +73,7 @@ class FrameworkType(Enum):
     Different Computation Type for training loop.
     """
     TENSORFLOW = 'tensorflow'
-    PYTORCH = 'pytorch'
+    PYTORCH    = 'pytorch'
 
     def __str__(self):
         return self.value
@@ -80,8 +82,8 @@ class ComputationType(Enum):
     """
     Different Computation Type for training loop.
     """
-    NONE = 'none'
-    SYNC = 'sync'
+    NONE  = 'none'
+    SYNC  = 'sync'
     ASYNC = 'async'
 
 
@@ -90,12 +92,12 @@ class FormatType(Enum):
     Format Type supported by the benchmark.
     """
     TFRECORD = 'tfrecord'
-    HDF5 = 'hdf5'
-    CSV = 'csv'
-    NPZ = 'npz'
+    HDF5     = 'hdf5'
+    CSV      = 'csv'
+    NPZ      = 'npz'
     HDF5_OPT = 'hdf5_opt'
-    JPEG = 'jpeg'
-    PNG = 'png'
+    JPEG     = 'jpeg'
+    PNG      = 'png'
 
     def __str__(self):
         return self.value
@@ -182,7 +184,7 @@ class FileAccess(Enum):
     - Collective = specific for the shared case, when we want to do collective I/O. Typically used for a huge file with small objects. 
       One thread T reads from disk and the other threads read from T's memory, which is used as a cache.
     """
-    MULTI = 'multi'
+    MULTI  = 'multi'
     SHARED = 'shared'
     # TO(HZ): I see currently, this collective mode is not used. It might be good to separate it out
     COLLECTIVE = 'collective'
@@ -201,12 +203,13 @@ class Compression(Enum):
     """
     Different Compression Libraries.
     """
-    NONE = 'none'
-    GZIP = 'gzip'
-    LZF = 'lzf'
+    NONE  = 'none'
+    GZIP  = 'gzip'
+    LZF   = 'lzf'
     BZIP2 = 'bz2'
-    ZIP = 'zip'
-    XZ = 'xz'
+    ZIP   = 'zip'
+    XZ    = 'xz'
 
     def __str__(self):
         return self.value
+

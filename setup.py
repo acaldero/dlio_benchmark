@@ -6,4 +6,8 @@ conf_dict = read_configuration("./setup.cfg")
 setup(**conf_dict['metadata'])
 
 import os
-os.system("pip install -r ./requirements.txt")
+
+# for Ubuntu:
+# os.system("aptitude install python3-testresources")
+
+  os.system("pip install -r ./requirements.txt")

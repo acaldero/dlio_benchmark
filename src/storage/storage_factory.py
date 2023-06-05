@@ -1,7 +1,8 @@
 from src.storage.file_storage import FileStorage
-from src.storage.s3_storage import S3Storage
-from src.common.enumerations import StorageType
-from src.common.error_code import ErrorCodes
+from src.storage.s3_storage   import S3Storage
+from src.storage.hdfs_storage import HDFSStorage
+from src.common.enumerations  import StorageType
+from src.common.error_code    import ErrorCodes
 
 class StorageFactory(object):
     def __init__(self):
@@ -13,5 +14,7 @@ class StorageFactory(object):
             return FileStorage(namespace, framework)
         elif storage_type == StorageType.S3:
             return S3Storage(namespace, framework)
+        elif storage_type == StorageType.HDFS:
+            return HDFSStorage(namespace, framework)
         else:
             raise Exception(str(ErrorCodes.EC1001))

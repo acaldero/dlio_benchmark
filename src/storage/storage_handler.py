@@ -21,7 +21,7 @@ class DataStorage(ABC):
     def get_uri(self, id):
         """
             This method returns URI of an id based on the implemented file system.
-            eg: For a file in S3, s3:// has to be prefixed to the file name.
+            eg: For a file in S3,     s3:// has to be prefixed to the file name.
             eg: For a file in hdfs, hdfs:// has to be prefixed to the file name.
         """
         pass
